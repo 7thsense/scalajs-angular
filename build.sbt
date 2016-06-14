@@ -4,25 +4,19 @@ lazy val scalaJsAngular = (project in file(".")).
     name := "scalajs-angular",
     description := "AngularJS bindings for Scala.js.",
     organization := "com.greencatsoft",
-    version := "0.8-SNAPSHOT",
+    version := "0.8.0.ss.1",
     scalaVersion := "2.11.11",
     crossScalaVersions := Seq("2.11.11", "2.12.1"),
     scalacOptions ++= Seq("-feature","-deprecation"),
     homepage := Some(url("http://github.com/greencatsoft/scalajs-angular")),
+    bintrayOrganization := Some("7thsense"),
+    licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html")),
 
     libraryDependencies ++= Seq(
       "org.scala-js" %%% "scalajs-dom" % "0.9.2",
       "be.doeraene" %%% "scalajs-jquery" % "0.9.1",
       "org.scala-lang" % "scala-reflect" % scalaVersion.value % "compile"
     ),
-
-    publishTo := {
-      val nexus = "https://oss.sonatype.org/"
-      if(isSnapshot.value)
-      	Some("snapshots" at nexus + "content/repositories/snapshots")
-      else
-      	Some("releases" at nexus + "service/local/staging/deploy/maven2")
-    },
 
     publishMavenStyle := true,
 
